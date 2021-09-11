@@ -6,29 +6,37 @@ import math
 
 
 def average(a: float, b: float, c: float) -> float:
-    return 0.0
+    result=(a+b+c)/3
+    return result
 
 
 def to_radians(angle_degs: float, angle_mins: float, angle_secs: float) -> float:
-    return 0.0
+    degs=angle_degs+(angle_mins+angle_secs/60)/60
+    degs_to_rads=degs*math.pi/180
+    return degs_to_rads
 
 
 def to_degrees(angle_rads: float) -> tuple:
-    return 0.0, 0.0, 0.0
+    rads_to_degs=angle_rads*180/math.pi
+    min_to_degs=angle_rads*(60*180)/math.pi
+    secs_to_degs=angle_rads*(3600*180)/math.pi
+    return rads_to_degs, min_to_degs, secs_to_degs
 
 
 def to_celsius(temperature: float) -> float:
-    return 0.0
+    celsius=(temperature-32)/1.8
+    return celsius
 
 
 def to_farenheit(temperature: float) -> float:
-    return 0.0
+    farenheit=temperature*1.8+32 
+    return farenheit
 
 
 def main() -> None:
     print(f"Moyenne des nombres 2, 4, 6: {average(2.1, 4.3, 6.5)}")
 
-    print(f"Conversion de 100 degres, 2 minutes et 45 secondes en radians: {to_radians(180, 2, 45)}")
+    print(f"Conversion de 100 degres, 2 minutes et 45 secondes en radians: {to_radians(100, 2, 45)}")
     
     degrees, minutes, seconds = to_degrees(1.0)
     print(f"Conversion de 1 radian en degres: {degrees} degres, {minutes} minutes et {seconds} secondes")
